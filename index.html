@@ -5,72 +5,95 @@
   <meta charset="utf-8" />
   <meta name="robots" content="noindex,nofollow" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="stylesheet" href="css/nav.css" />
   <link rel="stylesheet" href="css/main.css" />
-  <script src="main.js"></script>
+  <link rel="stylesheet" href="css/nav.css" />
   <style>
-/*
-      div#play span{
-        background-color: yellow;
-    }
-*/
+    /* div#play span{
+      background-color: yellow;
+    } */
   </style>
  </head>
  <body>
      <header>
-     <h1>Dom Play</h1>
+     <h1>DOM Play</h1>
      </header>
      
    <main class="wrapper">
-       <div id="play">
-        <p><span data-actor="hamlet">Hamlet: To be or not to be?</span></p>
-        <p><span data-actor="skull">Skull: Are you talking to me?</span></p>
-        <p><span data-actor="hamlet">Hamlet: Did you say something??</span></p>
-        <p><span data-actor="skull">Skull: No, I'm only a skull.</span></p>
-        <p><span data-actor="hamlet">Hamlet: Good, because I thought I was going crazy.</span></p>
-        </div>
+    <p>This page uses JavaScript to allow a user to click on the name of an actor and highlight their lines in a play. This page uses data-attributes and loops through and an anonymous function to loop through a nodelist and compare data-attributes to highlight or unhighlight text.</p>
+     <div id="play">
+      <p>Rkelly ft Usher - Same girl</p>
+      <p><span data-actor="RKelly">RKelly: Yo, Ush</span></p>
+      <p><span data-actor="Usher">Usher: What up, Kells?</span></p>
+      <p><span data-actor="RKelly">RKelly: Wanna introduce you to this girl, think i really love this girl</span></p>
+      <p><span data-actor="Usher">Usher: Yeah?</span></p>
+      <p><span data-actor="RKelly">RKelly: Man, she's so fine</span></p>
+      <p><span data-actor="Usher">Usher: Staight up dawg?</span></p>
+      <p><span data-actor="RKelly">RKelly: She stands about 5'4, Cocoa cola, red bone</span></p>
+      <p><span data-actor="Usher">Usher: Damn</span></p>
+      <p><span data-actor="RKelly">RKelly: She drives a black durango, license plate says Angel</span></p>
+      <p><span data-actor="Usher">Usher: What?</span></p>
+      <p><span data-actor="RKelly">RKelly: Tattoo on her ankle, Plus she's making pesos. Got a crib on Peachtree</span></p>
+      <p><span data-actor="Usher">Usher: Peachtree?</span></p>
+      <p><span data-actor="RKelly">RKelly: Right on 17 street and I call her TeTe</span></p>
+      <p><span data-actor="Usher">Usher: Wait a minute, hold on, dawg. Do she got a kid?</span></p>
+      <p><span data-actor="RKelly">RKelly: Yep</span></p>
+      <p><span data-actor="Usher">Usher: She love some waffle house?</span></p>
+      <p><span data-actor="RKelly">RKelly: Yep</span></p>
+      <p><span data-actor="Usher">Usher: Do she got a beauty mark on the left side of her mouth?</span></p>
+      <p><span data-actor="RKelly">RKelly: Mann</span></p>
+      <p><span data-actor="Usher">Usher: Went to Gerogia Tech?</span></p>
+      <p><span data-actor="RKelly">RKelly: Yup</span></p>
+      <p><span data-actor="Usher">Usher: Works for TBS?</span></p>
+      <p><span data-actor="RKelly">RKelly: Yup</span></p>
+      <p><span data-actor="Usher">Usher: Man, I can't belive this stuff, damn</span></p>
+      <p><span data-actor="RKelly">RKelly: Tell me what's wrong dawg, what the hell you talking 'bout? I'm your homie so just say what's on your mind</span></p>
+      <p><span data-actor="Usher">Usher: Man, I didn't know that you were talking 'bout her</span></p>
+      <p><span data-actor="RKelly">RKelly: So man you telling me you know her?</span></p>
+      <p><span data-actor="Usher">Usher: Do I know her? Like a pastor know his word</span></p>
+      <p><span data-actor="RKelly">RKelly: We messing with the same girl, same girl</span></p>
+      <p><span data-actor="Usher">Usher: We messing with the same girl, same girl</span></p>
+      
+    
+      <html lang="en">
+       <head>
+           <title>Title goes here</title>
+        <meta charset="utf-8" />
+        <meta name="robots" content="noindex,nofollow" />
+        <meta name="viewport" content="width=device-width" />
+                const spans = document.querySelectorAll('div#play span');
+                    console.log(spans);
+                    for (const mySpan of spans) {
+                        mySpan.addEventListener('click', function(ev){
+                        //alert(mySpan.dataset.actor);
+                        highlightActor(mySpan.dataset.actor);
+                        });
+                    }
+                
+                    function highlightActor(actor){
+                        for (const mySpan of spans) {
+                        if (actor == mySpan.dataset.actor){
+                        mySpan.style.backgroundColor = "yellow";
+                        }
+                        else {
+                        mySpan.style.backgroundColor = "white";
+                        }
+                        }
+                    }
+                    //document.querySelector('span.hamlet').style.backgroundColor = "yellow";
+
+
+      
+     </div>
      <footer>
-      <p><small>&copy; 2021 by 
-          Nille Misa, All Rights Reserved ~ 
+      <p><small>&copy; 2022
+            by 
+          Nille, All Rights Reserved ~ 
           <a id="html-checker" href="#">Check HTML</a> ~ 
           <a id="css-checker" href="#">Check CSS</a></small>
      </p>
     </footer>
   </main>
-  <script>
-
-    const spans = document.querySelectorAll('div#play span'); 
-
-    console.log(spans);
-
-    for(const mySpan of spans){
-        mySpan.addEventListener('click',function(ev){
-            //alert(mySpan.dataset.actor);
-
-
-            highlightActor(mySpan.dataset.actor);
-
-        });
-    }
-
-   
-
-function highlightActor(actor){
-
-    for(const mySpan of spans){
-        if(actor == mySpan.dataset.actor){
-        mySpan.style.backgroundColor = "yellow";
-     }else{
-        mySpan.style.backgroundColor = "white";
-        }   
-    }
-}
-
-            
-
-
- // document.querySelector(`span.hamlet`).style.backgroundColor = "yellow";
-    </script>
-    <script src="css/main.css"></script>     
+  <script src="js/dom-play.js"></script>
+  <script src="js/main.js"></script>
  </body>
 </html>
